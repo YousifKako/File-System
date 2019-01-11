@@ -1,0 +1,22 @@
+
+
+Type 0: File
+Type 1: Directory
+Pointer -1: Data block is NOT capped... Nothing to Point too
+Pointer (# > 0): Data block IS capped... Pointes to the extended index
+Offset (# >= 0): This indicates where I may start reading or writing data from/to a data block
+Index Number (# >= 0): Which index this metadata is in
+
+Everything in this filesystem should work accordingly, I have setup for you
+some examples in the code which should cover everything; you MAY comment-out
+function calls and also add-in function calls (just make sure to call them
+in a sensible order).
+
+You may also change the following defines to any numbers you want
+#define MAX_FILE_SIZE
+#define DATA_BLOCK_SIZE
+#define INDEX_BLOCK_SIZE
+
+Capping a data block:
+If a data block is capped, the program allocates a new index and data block
+and sets the pointer to the new index
